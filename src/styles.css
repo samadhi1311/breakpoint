@@ -1,0 +1,93 @@
+.breakpoint-main {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 24px;
+	font-weight: 400;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+.breakpoint-body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.breakpoint-main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem auto;
+}
+
+#breakpoint-url-input,
+#breakpoint-button {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	color: #555555;
+	background-color: #e7e7e7;
+	transition: all 0.2s ease;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	transform: scale(1) translateZ(0);
+}
+
+#breakpoint-url-input {
+	width: 50%;
+}
+
+#breakpoint-url-input:hover {
+	border: 1px solid #701ebd;
+	transform: scale(1.01);
+}
+
+#breakpoint-button:hover {
+	border: 1px solid #701ebd;
+	transform: scale(1.1);
+}
+
+#breakpoint-button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+#breakpoint-button:active {
+	border-color: #701ebd;
+	background-color: #e7d5ff;
+}
+
+#breakpoint-url-input,
+#breakpoint-button {
+	outline: none;
+}
+
+#breakpoint-webview-container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100%;
+	gap: 1rem;
+}
+
+#breakpoint-webview-container iframe {
+	border: 1px solid #adadad;
+	border-radius: 12px;
+	height: 100%;
+}
+
+#viewport-target {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+}

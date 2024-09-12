@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Breakpoint</title>
+	</head>
+	<body class="breakpoint-body">
+		<div class="breakpoint-main">
+			<input type="text" id="breakpoint-url-input" placeholder="Enter URL" />
+			<button id="breakpoint-button">
+				Go
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgb(85, 85, 85, 1); transform: 0">
+					<path d="M10.061 19.061 17.121 12l-7.06-7.061-2.122 2.122L12.879 12l-4.94 4.939z"></path>
+				</svg>
+			</button>
+		</div>
+
+		<div id="breakpoint-webview-container">
+			<span>
+				<p id="viewport-target">Desktop (1366 x 768)</p>
+				<iframe id="breakpoint-desktop-webview" src="" style="width: 1366px; height: 768px"></iframe>
+			</span>
+			<span>
+				<p id="viewport-target">Mobile (375 x 600)</p>
+				<iframe id="breakpoint-mobile-webview" src="" style="width: 375px; height: 600px"></iframe>
+			</span>
+		</div>
+
+		<script>
+			const goBtn = document.getElementById('breakpoint-button');
+			const urlInput = document.getElementById('breakpoint-url-input');
+			const webviewDesktop = document.getElementById('breakpoint-desktop-webview');
+			const webviewMobile = document.getElementById('breakpoint-mobile-webview');
+
+			function setWebviewUrls(url) {
+				const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
+				webviewDesktop.src = formattedUrl;
+				webviewMobile.src = formattedUrl;
+			}
+
+			goBtn.addEventListener('click', () => {
+				const url = urlInput.value;
+				console.log(`Button clicked with URL: ${url}`);
+				if (url) {
+					setWebviewUrls(url);
+				}
+			});
+		</script>
+	</body>
+</html>
