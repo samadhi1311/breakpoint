@@ -1,0 +1,72 @@
+{
+	"build": {
+		"devPath": "../src",
+		"distDir": "../src",
+		"withGlobalTauri": true
+	},
+	"package": {
+		"productName": "breakpoint",
+		"version": "0.1.0"
+	},
+	"tauri": {
+		"allowlist": {
+			"all": false,
+			"shell": {
+				"all": false,
+				"open": true
+			},
+			"window": {
+				"all": true,
+				"create": true,
+				"center": true,
+				"requestUserAttention": true,
+				"setResizable": true,
+				"setMaximizable": true,
+				"setMinimizable": true,
+				"setClosable": true,
+				"setTitle": true,
+				"maximize": true,
+				"unmaximize": true,
+				"minimize": true,
+				"unminimize": true,
+				"show": true,
+				"hide": true,
+				"close": true,
+				"setDecorations": true,
+				"setAlwaysOnTop": true,
+				"setContentProtected": true,
+				"setSize": true,
+				"setMinSize": true,
+				"setMaxSize": true,
+				"setPosition": true,
+				"setFullscreen": true,
+				"setFocus": true,
+				"setIcon": true,
+				"setSkipTaskbar": true,
+				"setCursorGrab": true,
+				"setCursorVisible": true,
+				"setCursorIcon": true,
+				"setCursorPosition": true,
+				"setIgnoreCursorEvents": true,
+				"startDragging": true,
+				"print": true
+			}
+		},
+		"windows": [
+			{
+				"title": "breakpoint",
+				"width": 1600,
+				"height": 800
+			}
+		],
+		"security": {
+			"csp": null
+		},
+		"bundle": {
+			"active": true,
+			"targets": "all",
+			"identifier": "com.samadhi1311.breakpoint",
+			"icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"]
+		}
+	}
+}
