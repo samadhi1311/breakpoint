@@ -4,11 +4,12 @@
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="styles.css" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script type="module" src="main.js"></script>
 		<title>Breakpoint</title>
 	</head>
 	<body class="breakpoint-body">
 		<div class="breakpoint-main">
-			<input type="text" id="breakpoint-url-input" placeholder="Enter URL" />
+			<input type="text" id="breakpoint-url-input" placeholder="Enter URL" onkeypress="if(event.keyCode==13){goBtn.click();}" />
 			<button id="breakpoint-button">
 				Go
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" style="fill: rgb(85, 85, 85, 1); transform: 0">
@@ -18,34 +19,75 @@
 		</div>
 
 		<div id="breakpoint-webview-container">
-			<span>
-				<p id="viewport-target">Desktop (1366 x 768)</p>
-				<iframe id="breakpoint-desktop-webview" src="" style="width: 1366px; height: 768px"></iframe>
+			<span class="desktop-webview">
+				<p id="viewport-target">Desktop</p>
+				<select name="desktop-size" id="desktop-size">
+					<option value="hd">1366 x 768 HD</option>
+					<option value="fhd125">1536 x 864 FHD 125%</option>
+					<option value="fhd" selected>1920 x 1080 FHD</option>
+				</select>
+				<iframe id="breakpoint-desktop-webview" src="" style="width: 1920px; height: 1080px"></iframe>
 			</span>
-			<span>
-				<p id="viewport-target">Mobile (375 x 600)</p>
-				<iframe id="breakpoint-mobile-webview" src="" style="width: 375px; height: 600px"></iframe>
+			<span class="mobile-webview">
+				<p id="viewport-target">Mobile</p>
+				<select name="mobile-size" id="mobile-size">
+					<option value="android" selected>360 x 800 Android</option>
+					<option value="apple">390 x 844 Apple</option>
+					<option value="androidplus">393 x 873 Android +</option>
+				</select>
+				<iframe id="breakpoint-mobile-webview" src="" style="width: 360px; height: 800px"></iframe>
 			</span>
 		</div>
 
 		<script>
+			const sizes = {
+				hd: { width: 1366, height: 768 },
+				fhd125: { width: 1536, height: 864 },
+				fhd: { width: 1920, height: 1080 },
+				android: { width: 360, height: 800 },
+				apple: { width: 390, height: 844 },
+				androidplus: { width: 393, height: 873 },
+			};
+
 			const goBtn = document.getElementById('breakpoint-button');
 			const urlInput = document.getElementById('breakpoint-url-input');
 			const webviewDesktop = document.getElementById('breakpoint-desktop-webview');
 			const webviewMobile = document.getElementById('breakpoint-mobile-webview');
+			const desktopSizeSelect = document.getElementById('desktop-size');
+			const mobileSizeSelect = document.getElementById('mobile-size');
 
+			// Set the webview URLs when the "Go" button is clicked
 			function setWebviewUrls(url) {
 				const formattedUrl = url.startsWith('http') ? url : `https://${url}`;
 				webviewDesktop.src = formattedUrl;
 				webviewMobile.src = formattedUrl;
 			}
 
+			// Set iframe dimensions directly without scaling
+			function setIframeSize(iframe, width, height) {
+				iframe.style.width = `${width}px`;
+				iframe.style.height = `${height}px`;
+			}
+
 			goBtn.addEventListener('click', () => {
 				const url = urlInput.value;
-				console.log(`Button clicked with URL: ${url}`);
 				if (url) {
 					setWebviewUrls(url);
 				}
+			});
+
+			// Update desktop iframe size when desktop size is selected
+			desktopSizeSelect.addEventListener('change', (e) => {
+				const selectedSize = e.target.value;
+				const { width, height } = sizes[selectedSize];
+				setIframeSize(webviewDesktop, width, height);
+			});
+
+			// Update mobile iframe size when mobile size is selected
+			mobileSizeSelect.addEventListener('change', (e) => {
+				const selectedSize = e.target.value;
+				const { width, height } = sizes[selectedSize];
+				setIframeSize(webviewMobile, width, height);
 			});
 		</script>
 	</body>

@@ -13,8 +13,8 @@
 
 .breakpoint-body {
 	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .breakpoint-main {
@@ -22,7 +22,7 @@
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-	margin: 1rem auto;
+	margin: 1rem;
 }
 
 #breakpoint-url-input,
@@ -72,22 +72,36 @@
 	outline: none;
 }
 
+#viewport-target {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+}
+
 #breakpoint-webview-container {
 	display: flex;
-	align-items: flex-start;
-	justify-content: center;
+	justify-content: space-between;
+	align-items: start;
 	width: 100%;
 	gap: 1rem;
+	padding: 0 1rem; /* Keep padding for better aesthetics */
+	box-sizing: border-box;
+	overflow: hidden;
 }
 
 #breakpoint-webview-container iframe {
 	border: 1px solid #adadad;
 	border-radius: 12px;
-	height: 100%;
+	overflow: hidden;
+	transform: scale(0.75);
+	transform-origin: top left;
+	transition: width 0.3s ease, height 0.3s ease;
 }
 
-#viewport-target {
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-weight: 500;
+.desktop-webview {
+	width: 80%;
+}
+
+.mobile-webview {
+	width: 20%;
 }
