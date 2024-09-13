@@ -16,14 +16,22 @@
 				"open": true
 			},
 			"window": {
-				"setFullscreen": true
+				"setFullscreen": true,
+				"close": true,
+				"hide": true,
+				"show": true,
+				"maximize": true,
+				"minimize": true,
+				"unmaximize": true,
+				"unminimize": true,
+				"startDragging": true
 			}
 		},
 		"windows": [
 			{
 				"title": "breakpoint",
-				"width": 1600,
-				"height": 800
+				"fullscreen": false,
+				"decorations": true
 			}
 		],
 		"security": {
