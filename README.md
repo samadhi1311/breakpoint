@@ -4,4 +4,4 @@
 
 Breakpoint is a cross-platform desktop app to visualize websites in different screen sizes in the same window. Uses HTML, CSS and Javascript, Rust along with Tauri framework.
 
-![image](https://github.com/user-attachments/assets/a3390b44-c5a0-4ca4-b732-8d3dd1d12e3a)
+https://github.com/user-attachments/assets/91178d1d-c0b7-4bb5-acb2-7d31c959cf1f
