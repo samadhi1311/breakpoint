@@ -14,7 +14,6 @@
 .breakpoint-body {
 	margin: 0;
 	box-sizing: border-box;
-	overflow: hidden;
 }
 
 .breakpoint-main {
@@ -104,4 +103,16 @@
 
 .mobile-webview {
 	width: 20%;
+}
+
+.window-controls {
+	padding: 0.25rem;
+	margin: 0.25rem;
+}
+
+.breakpoint-header {
+	display: flex;
+	width: 100%;
+	justify-content: end;
+	align-self: self-end;
 }
